@@ -1,0 +1,7 @@
+[package]
+name = "nix_ctl"
+version = "0.0.1"
+
+[dependencies]
+nix-data = "0.0.2"
+
