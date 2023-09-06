@@ -841,6 +841,9 @@ name = "nix_ctl"
 version = "0.0.1"
 dependencies = [
  "nix-data",
+ "regex",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]

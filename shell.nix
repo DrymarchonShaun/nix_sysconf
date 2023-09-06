@@ -5,8 +5,10 @@
       # Replace llvmPackages with llvmPackages_X, where X is the latest LLVM version (at the time of writing, 16)
       llvmPackages.bintools
       rustup
+      openssl
+      pkg-config
+      gcc
     ];
-    RUSTC_VERSION = pkgs.lib.readFile ./rust-toolchain;
     # https://github.com/rust-lang/rust-bindgen#environment-variables
     LIBCLANG_PATH = pkgs.lib.makeLibraryPath [ pkgs.llvmPackages_latest.libclang.lib ];
     shellHook = ''
@@ -22,7 +24,8 @@
     # Includes with normal include path
     (builtins.map (a: ''-I"${a}/include"'') [
       # add dev libraries here (e.g. pkgs.libvmi.dev)
-      pkgs.glibc.dev 
+      pkgs.glibc.dev
+      pkgs.openssl.dev
     ])
     # Includes with special directory paths
     ++ [
